@@ -4,6 +4,7 @@
  */
 package com.logindy.ppms.repository;
 
+import com.logindy.ppms.entity.PartModel;
 import com.logindy.ppms.entity.Product;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,11 +15,21 @@ import java.util.List;
  * @author krit
  */
 public class ProductRepository {
+    private static ProductRepository repository;
 
     List<Product> products;
     
-    static ProductRepository getInstance() {
-        return new ProductRepository();
+    public static ProductRepository getInstance() {
+        
+        if(null == repository) {
+            repository = new ProductRepository();
+            repository.add(new Product("Product A", 
+                    new PartModel("Part A", "Model A")));
+            repository.add(new Product("Product B", 
+                    new PartModel("Part B", "Model B")));
+        }
+        
+        return repository;
     }
     
     public ProductRepository() {
@@ -29,8 +40,7 @@ public class ProductRepository {
         products.add(product);
     }
 
-    List<Product> searchByProductName(String name) {
-        
+    public List<Product> searchByProductName(String name) {        
         return search("name", name);
     }   
 

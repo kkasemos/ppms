@@ -36,8 +36,8 @@ public class ProductRepositoryTest {
     @Before
     public void setUp() {
         productRepo = ProductRepository.getInstance();        
-        productRepo.add(new Product("Product A", new PartModel("Part A", "Model A")));
-        productRepo.add(new Product("Product B", new PartModel("Part B", "Model B")));
+        //productRepo.add(new Product("Product A", new PartModel("Part A", "Model A")));
+        //productRepo.add(new Product("Product B", new PartModel("Part B", "Model B")));
     }
     
     @After

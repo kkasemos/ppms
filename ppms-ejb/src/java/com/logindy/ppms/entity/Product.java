@@ -6,14 +6,20 @@ package com.logindy.ppms.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author krit
  */
+@Stateless
 public class Product {
     private String name;
     private List<PartModel> partModels;
+    
+    public Product() {
+        
+    }
     
     public Product(String name) {
         this.name = name;
