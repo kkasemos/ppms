@@ -25,19 +25,9 @@ public class ProductRepositoryTest {
     public ProductRepositoryTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {        
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
         productRepo = ProductRepository.getInstance();        
-        //productRepo.add(new Product("Product A", new PartModel("Part A", "Model A")));
-        //productRepo.add(new Product("Product B", new PartModel("Part B", "Model B")));
     }
     
     @After

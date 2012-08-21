@@ -4,8 +4,10 @@
  */
 package com.logindy.ppms.web.bean;
 
+import com.logindy.ppms.entity.Part;
 import com.logindy.ppms.entity.Product;
 import com.logindy.ppms.repository.ProductRepository;
+import com.logindy.ppms.repository.PartRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -45,19 +47,46 @@ public class PartSearchBean {
     }
     
     public List<ProductBean> getProducts() {
-        List<Product> products = ProductRepository.getInstance()
+        
+        List<Product> products;              
+        
+        if(null == keyword || "".equals(keyword)) {
+            products = new ArrayList<Product>();
+        } else {
+            products = ProductRepository.getInstance()
                 .searchByProductName(keyword);
+        }
         
         List<ProductBean> productBeans = new ArrayList<ProductBean>();
         
         for(Product product: products) {
-            ProductBean productBean = new ProductBean();
-            
-            productBean.setProduct(product);
-            
+            ProductBean productBean = new ProductBean();       
+            productBean.setProduct(product);            
             productBeans.add(productBean);
         }
         
         return productBeans;
     }
+    
+    public List<PartBean> getParts() {
+        
+        List<Part> parts;              
+        
+        if(null == keyword || "".equals(keyword)) {
+            parts = new ArrayList<Part>();
+        } else {
+            parts = PartRepository.getInstance()
+                .searchByPartName(keyword);
+        }
+        
+        List<PartBean> partBeans = new ArrayList<PartBean>();
+        
+        for(Part part: parts) {
+            PartBean partBean = new PartBean();       
+            partBean.setPart(part);            
+            partBeans.add(partBean);
+        }
+        
+        return partBeans;
+    }    
 }

@@ -65,7 +65,7 @@ public class ProductRepository {
                 Product product = (Product)o1;
                 String name = (String)o2;
                 
-                if(product.getName().equals(name)) {
+                if(-1 != product.getName().indexOf(name)) {
                     return 0;
                 }
                 
@@ -73,5 +73,9 @@ public class ProductRepository {
             }
             
         };
+    }
+
+    public List<Product> searchByPartName(String partName) {
+        return search("partName", partName);
     }
 }
