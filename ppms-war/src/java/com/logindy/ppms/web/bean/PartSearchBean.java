@@ -6,8 +6,8 @@ package com.logindy.ppms.web.bean;
 
 import com.logindy.ppms.entity.Part;
 import com.logindy.ppms.entity.Product;
-import com.logindy.ppms.repository.ProductRepository;
 import com.logindy.ppms.repository.PartRepository;
+import com.logindy.ppms.repository.ProductRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
